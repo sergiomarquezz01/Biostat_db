@@ -1,0 +1,265 @@
+/* =======================================================
+   BIOSTATS ULTRA SENTINEL - FULL WIDTH OPERATING SYSTEM
+   ======================================================= */
+
+:root {
+  --bg: #020617;
+  --panel: #0f172a;
+  --panel-light: #1e293b;
+  --border: #334155;
+  --cyan: #22d3ee;
+  --cyan-glow: rgba(34, 211, 238, 0.3);
+  --red: #ef4444;
+  --green: #10b981;
+  --text: #f1f5f9;
+  --text-dim: #94a3b8;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset Estructural */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+  background-color: var(--bg); 
+  color: var(--text); 
+  font-family: 'Inter', system-ui, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* El scroll ocurre dentro de los contenedores */
+}
+
+/* Contenedor Raíz */
+.ultra-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+/* Header de Alta Tecnología */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo-group { display: flex; align-items: center; gap: 0.8rem; }
+.logo-group h1 { font-size: 1.6rem; font-weight: 950; letter-spacing: -1.5px; }
+.logo-group h1 span { color: var(--cyan); text-shadow: 0 0 10px var(--cyan-glow); }
+.logo-group p { font-size: 9px; color: var(--text-dim); letter-spacing: 2.5px; text-transform: uppercase; }
+
+.header-metrics { display: flex; gap: 1.5rem; align-items: center; }
+.h-stat { font-size: 11px; color: var(--text-dim); font-weight: 700; }
+.h-stat strong { color: var(--cyan); font-size: 1.2rem; margin-left: 5px; }
+
+.export-btn {
+  background: var(--panel-light);
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Grid Maestro Desplegado */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* Sidebar Fija / Main Flexible */
+  gap: 1.5rem;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.sidebar-area, .content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Estilo de Paneles Glassmorphism */
+.glass-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: var(--transition);
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 2px;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* UI Selectors & Buttons */
+.ui-select {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--panel-light);
+  border: 1px solid var(--border);
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.ui-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--cyan);
+  color: var(--bg);
+  font-weight: 900;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ui-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--cyan-glow);
+}
+
+/* Visualizaciones IA */
+.score-hero { text-align: center; margin: 1.5rem 0; }
+.s-val { font-size: 4.5rem; font-weight: 950; color: var(--cyan); line-height: 1; }
+.s-lbl { font-size: 11px; color: var(--text-dim); font-weight: 800; }
+
+.viz-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.chart-box { height: 220px; width: 100%; }
+
+/* CLUSTER GRID - RELLENO TOTAL */
+.cluster-grid-smart {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.cluster-tile {
+  background: var(--panel-light);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cluster-tile:hover {
+  border-color: var(--cyan);
+  background: rgba(34, 211, 238, 0.05);
+}
+
+.cluster-tile.active {
+  border-color: var(--cyan);
+  background: rgba(34, 211, 238, 0.1);
+  box-shadow: inset 0 0 15px var(--cyan-glow);
+}
+
+.t-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-pill {
+  background: var(--panel);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* MATRIZ DE COMPARACIÓN DINÁMICA */
+.table-flow {
+  overflow: auto;
+  max-height: 400px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #000;
+}
+
+.u-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 11px;
+}
+
+.u-table th {
+  background: var(--panel-light);
+  padding: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.f-col {
+  position: sticky;
+  left: 0;
+  background: var(--panel);
+  z-index: 30;
+  font-weight: 900;
+  min-width: 150px;
+  border-right: 3px solid var(--cyan) !important;
+  color: var(--cyan);
+}
+
+.u-table td {
+  padding: 12px;
+  text-align: center;
+  border: 0.5px solid rgba(255,255,255,0.02);
+}
+
+/* Indicadores de Estado */
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 900;
+  margin-top: 1rem;
+}
+
+.status-indicator.danger { color: var(--red); background: rgba(239, 68, 68, 0.1); border: 1px solid var(--red); }
+.status-indicator.safe { color: var(--green); background: rgba(16, 185, 129, 0.1); border: 1px solid var(--green); }
+
+/* Consola */
+.console-txt {
+  height: 100px;
+  background: #000;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  overflow-y: auto;
+}
+
+/* Scrollbar Personalizado */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
